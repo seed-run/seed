@@ -1,0 +1,44 @@
+{
+  "name": "seed-run",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "packages/cli/test/*"
+  ],
+  "scripts": {
+    "lint": "eslint . --fix --ext .js,.ts",
+    "prettier": "prettier --write **/*.{js,ts,json,md}",
+    "changelog": "lerna-changelog",
+    "release": "lerna publish --force-publish",
+    "release-canary": "lerna publish --canary --exact --preid next --dist-tag=next --force-publish=*",
+    "clean": "lerna run clean",
+    "test": "lerna run test --stream --scope='{@seed-run/cli}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seed-run/seed.git"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "husky": "^4.3.6",
+    "lerna": "^3.22.1",
+    "lerna-changelog": "^1.0.1",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,css,json,md}": [
+      "prettier --write"
+    ],
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
+  }
+}

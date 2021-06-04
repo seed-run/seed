@@ -1,0 +1,39 @@
+{
+  "name": "@seed-run/cli",
+  "version": "0.0.0",
+  "description": "A CLI to help deploy your Seed apps.",
+  "scripts": {
+    "test": "jest"
+  },
+  "bin": {
+    "seed": "./bin/scripts.js"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/helpers/setup-tests.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/scripts"
+    ]
+  },
+  "author": {
+    "name": "Seed",
+    "url": "https://seed.run"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seed-run/seed.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://seed.run",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "jest": "^26.1.0",
+    "node-fetch": "^2.6.1",
+    "yargs": "^15.4.1"
+  }
+}
