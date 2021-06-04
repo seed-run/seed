@@ -5,7 +5,7 @@ const { logger } = require("./util/logger");
 
 module.exports = async function (argv) {
   const { org, app, stage, commit } = argv;
-  const domain = "apiv2.staging.seed.run";
+  const domain = "apiv2.seed.run";
 
   // Make request
   const basicAuth = Buffer.from(`${org}:${process.env.SEED_TOKEN}`, 'binary').toString('base64');
