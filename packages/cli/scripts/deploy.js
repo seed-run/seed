@@ -31,7 +31,7 @@ module.exports = async function (argv) {
     logger.error(chalk.red(`Authentication failed for "${org}"`));
   }
   else {
-    logger.error(chalk.red(data));
+    logger.error(chalk.red(JSON.stringify(data)));
   }
 
   return process.exit(1);
