@@ -11,8 +11,6 @@ process.on("unhandledRejection", (err) => {
   throw err;
 });
 
-require("source-map-support").install();
-
 const yargs = require("yargs");
 const chalk = require("chalk");
 const { logger } = require("../scripts/util/logger");
@@ -20,7 +18,6 @@ const { logger } = require("../scripts/util/logger");
 const args = process.argv.slice(2);
 
 const script = args[0];
-const scriptArgs = args.slice(1);
 
 const cmd = {
   s: "seed",
@@ -31,7 +28,7 @@ const internals = {
   [cmd.deploy]: require("../scripts/deploy"),
 };
 
-function addOptions(currentCmd) {
+function addOptions() {
   return function (yargs) {
     yargs
       .option("org", {
@@ -75,7 +72,7 @@ const argv = yargs
   .command(
     cmd.deploy,
     "Deploy your Seed app",
-    addOptions(cmd.deploy)
+    addOptions()
   )
 
   .example([

@@ -1,4 +1,5 @@
 "use strict";
+const chalk = require("chalk");
 const fetch = require('node-fetch');
 const { logger } = require("./util/logger");
 
