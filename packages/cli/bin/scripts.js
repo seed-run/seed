@@ -15,6 +15,7 @@ require("source-map-support").install();
 
 const yargs = require("yargs");
 const chalk = require("chalk");
+const { logger } = require("../scripts/util/logger");
 
 const args = process.argv.slice(2);
 
@@ -33,13 +34,25 @@ const internals = {
 function addOptions(currentCmd) {
   return function (yargs) {
     yargs
+      .option("org", {
+        type: "string",
+        describe: "The organization you want to deploy to",
+        demandOption: true,
+      })
+      .option("app", {
+        type: "string",
+        describe: "The application you want to deploy to",
+        demandOption: true,
+      })
       .option("stage", {
         type: "string",
         describe: "The stage you want to deploy to",
+        demandOption: true,
       })
       .option("commit", {
         type: "string",
         describe: "The commit hash you want to deploy",
+        demandOption: true,
       });
   };
 }
@@ -67,7 +80,7 @@ const argv = yargs
 
   .example([
     [
-      `$0 ${cmd.deploy} --stage dev --commit 15292b4289b5a565025938ee27c5554cc4a2c41e`,
+      `$0 ${cmd.deploy} --org acme --app backend-api --stage dev --commit 15292b4289b5a565025938ee27c5554cc4a2c41e`,
       "Deploy a commit to a stage",
     ],
   ])
@@ -98,18 +111,18 @@ if (!process.stdout.isTTY || argv.noColor) {
 
 // Set debug flag
 if (argv.verbose) {
-  process.env.DEBUG = "true";
+  logger.level = "debug";
 }
 
 switch (script) {
   case cmd.deploy: {
     internals[script](argv).catch((e) => {
-      console.error(e.message);
+      logger.error(e.message);
       process.exit(1);
     });
     break;
   }
   default:
-    console.log('Unknown script "' + script + '".');
+    logger.log('Unknown script "' + script + '".');
     break;
 }
