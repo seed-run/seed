@@ -25,3 +25,7 @@ You simply need to pass in the:
 ### Seed CLI Token
 
 You can generate the `SEED_TOKEN` from your org settings in the [Seed console](https://console.seed.run).
+
+### Documentation
+
+[Read more about deploying with the Seed CLI over on the docs](https://seed.run/docs/deploying-with-the-seed-cli).
