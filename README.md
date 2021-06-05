@@ -30,6 +30,10 @@ You simply need to pass in the:
 
 You can generate the `SEED_TOKEN` from your org settings in the [Seed console](https://console.seed.run).
 
+## Documentation
+
+[Read more about deploying with the Seed CLI over on the docs](https://seed.run/docs/deploying-with-the-seed-cli).
+
 ## Community
 
 [Follow us on Twitter](https://twitter.com/SEED_run), [join us on Slack](https://launchpass.com/serverless-stack), and [sign up for our newsletter](https://emailoctopus.com/lists/14c85084-324e-11ea-be00-06b4694bee2a/forms/subscribe).
