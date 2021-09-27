@@ -50,6 +50,11 @@ function addOptions() {
         type: "string",
         describe: "The commit hash you want to deploy",
         demandOption: true,
+      })
+      .option("force", {
+        default: false,
+        desc: "Force deploy even if there are no changes.",
+        type: "boolean",
       });
   };
 }

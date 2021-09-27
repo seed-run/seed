@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const { logger } = require("./util/logger");
 
 module.exports = async function (argv) {
-  const { org, app, stage, commit } = argv;
+  const { org, app, stage, commit, force } = argv;
   const domain = "apiv2.seed.run";
 
   // Make request
@@ -12,7 +12,7 @@ module.exports = async function (argv) {
   const url = `https://${domain}/${org}/${app}/stages/${stage}/deploy_all_cli`;
   const response = await fetch(url, {
     method: 'POST',
-    body: JSON.stringify({ commit_sha: commit }),
+    body: JSON.stringify({ commit_sha: commit, force_deploy: force }),
     headers: {
       Authorization: `Basic ${basicAuth}`
     },
