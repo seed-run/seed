@@ -2,12 +2,12 @@
   "name": "@seed-run/cli-test-base",
   "private": true,
   "description": "tests",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "deploy": "seed deploy"
   },
   "dependencies": {
-    "@seed-run/cli": "^0.1.1"
+    "@seed-run/cli": "^0.1.2"
   },
   "license": "ISC"
 }
